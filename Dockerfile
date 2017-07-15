@@ -4,13 +4,13 @@
 ##################################################################
 
 # Base image is python
-FROM python:latest
+FROM daocloud.io/library/python:2.7.7
 
 # Author: Dr. Peter
 MAINTAINER Dr. Peter <peterindia@gmail.com>
 
 # Install redis driver for python and the redis mock
-RUN pip install redis && pip install mockredispy
+RUN pip install redis && pip install mockredispy && pip install mock
 
 # Copy the test and source to the Docker image
 ADD src/ /src/
@@ -19,4 +19,4 @@ ADD src/ /src/
 WORKDIR /src/
 
 # Make unittest as the default execution...
-ENTRYPOINT python3 -m unittest
+ENTRYPOINT python test_hitcount.py
