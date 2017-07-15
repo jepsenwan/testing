@@ -10,7 +10,7 @@ FROM daocloud.io/library/python:2.7.7
 MAINTAINER Dr. Peter <peterindia@gmail.com>
 
 # Install redis driver for python and the redis mock
-RUN pip install redis && pip install mockredispy && pip install mock
+RUN pip install mock && pip install redis && pip install mockredispy
 
 # Copy the test and source to the Docker image
 ADD src/ /src/
